@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<h3> {{test}}</h3>
+<h5> {{name_question}} </h5>
+
+
+<form action="" method="post" >
+{% csrf_token %}
+
+{% if count == 1 %}
+
+{% for answer in answers %}
+<p>
+<input type="radio" id="answerChoice"
+   name="answer", value={{answer.id}}>
+  <label for="answerChoice">{{answer}}</label>
+</p>
+{% endfor %}
+<br>
+
+
+{% else %}
+
+{% for answer in answers %}
+<p>
+<input type="checkbox" id="answerChoice"
+   name="answer", value={{answer.id}}>
+  <label for="answerChoice">{{answer}}</label>
+</p>
+{% endfor %}
+
+{% endif %}
+
+<button type="submit">Next question</button>
+<br>
+</form>
+
+{% endblock %}

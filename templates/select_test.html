@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<h3> Выберите тeст:</h3>
+
+{% for test in tests_on_page %}
+
+  <a href="/test/{{ test.id }}">{{ test.name_test }}</a> <br>
+
+{% endfor %}
+
+
+<div class="pagination">
+    <span class="step-links">
+
+        {% if tests_on_page.has_previous %}
+            <a href="?page=1">&laquo; Первая </a>
+            <a href="?page={{ tests_on_page.previous_page_number }}">Предыдущая</a>
+        {% endif %}
+
+        <span class="current">
+            Страница {{ tests_on_page.number }} из {{ tests_on_page.paginator.num_pages }}.
+        </span>
+
+        {% if tests_on_page.has_next %}
+            <a href="?page={{ tests_on_page.next_page_number }}">Следующая</a>
+            <a href="?page={{ tests_on_page.paginator.num_pages }}">Последняя &raquo;</a>
+        {% endif %}
+
+    </span>
+</div>
+
+{% endblock %}

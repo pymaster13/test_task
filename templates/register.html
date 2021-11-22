@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<h3> Введите Ваши персональные данные для регистрации на сайте.</h3>
+
+      <form action="" method="post" >
+
+        {% csrf_token %}
+
+        {{user_form.as_p}}
+
+        <p><input class="login-signin" type="submit" value="Register"></p>
+
+      </form>
+{% endblock %}

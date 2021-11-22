@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% block content %}
+{% if mark > 2 %}
+<h3> Поздравляем, вы прошли тест: {{test_name}}</h3><br>
+{% else %}
+<h3> Увы, тест не пройден: {{test_name}}</h3><br>
+{% endif %}
+<h6> Количество правильных ответов: {{right_answer}}/{{all}}</h6><br>
+<h6> Количество набранных баллов: {{point}}</h6><br>
+<h6> Оценка за тест: {{mark}}</h6><br>
+
+<a href="/test/">Выбрать тест</a>
+
+{% endblock %}

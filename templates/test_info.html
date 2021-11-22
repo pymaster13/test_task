@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<h3> Информация о тесте: {{test}}</h3>
+<p>Количество вопросов: {{count}}</p>
+<p> Максимальное количество баллов: {{max_points}}</p>
+<p>Пройдено раз: {{user_test.count_attempts}}/{{test.max_attempt}}</p>
+ {% if test.max_attempt == user_test.count_attempts%}
+    <p> Количество попыток закончилось! </p>
+    <a href="/test/{{ test.id }}/">Начать тест</a><br>
+    <a href="/test/">Выбрать тест</a>
+ {% else %}
+    <a href="/test/{{ test.id }}/1">Начать тест</a>
+ {% endif %}
+
+{% endblock %}
